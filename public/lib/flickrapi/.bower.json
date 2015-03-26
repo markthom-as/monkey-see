@@ -1,0 +1,35 @@
+{
+  "name": "flickrapi",
+  "version": "0.3.29",
+  "homepage": "https://github.com/Pomax/node-flickrapi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pomax/node-flickrapi.git"
+  },
+  "authors": [
+    "Mike 'Pomax' Kamermans <pomax@nihongoresources.com>"
+  ],
+  "description": "A JavaScript implementation of the full Flickr API",
+  "main": "./browser/flickrapi.js",
+  "keywords": [
+    "flickrapi",
+    "flickr",
+    "api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "_release": "0.3.29",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.29",
+    "commit": "e0dd35567e03241f80fdf653ac359ae874055ee1"
+  },
+  "_source": "git://github.com/Pomax/node-flickrapi.git",
+  "_target": "~0.3.29",
+  "_originalSource": "flickrapi",
+  "_direct": true
+}

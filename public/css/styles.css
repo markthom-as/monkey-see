@@ -1,0 +1,10 @@
+body {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+pre{
+  height: 250px;
+  width: 50vw;
+  overflow: scroll;
+}
