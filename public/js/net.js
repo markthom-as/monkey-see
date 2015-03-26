@@ -4,12 +4,9 @@ var IMG_HEIGHT = 100;
 var DEPTH = 3;
 
 //Set Variables
-var NUM_CLASSES = 4; //Number of materials
-var BATCH_SIZE = 3; //number of items in training batch
-var BATCH_QUERIES = ['plastic cup', 'cardboard box', 'wood plank', 'daisy flower'];
-
-//Demo training batch
-var test_batch = [{url: 'http://www.dunnrecycling.com/wp-content/uploads/2011/09/cardboard-box-300x233.jpg', label: 'cardboard'}, {url: 'http://gp1.wac.edgecastcdn.net/802892/production_public/Artist/1383657/image/cardboard-boxes-in-a-pile-web.jpg', label: 'cardboard'}]
+var NUM_CLASSES = 0; //Number of materials
+var BATCH_SIZE = 0; //number of items in training batch
+var BATCH_QUERIES = [];
 
 //Neural Network Layer Definitions
 var layer_defs = [];
@@ -51,33 +48,31 @@ var checkImg = function(url) {
 
 //takes a batch array of image objects with a url and label field and trains the network
 var train = function(batch, size, context) {
-  if(size){
+  if(size !== undefined){
     BATCH_SIZE = size;
   }
   batch.forEach(function(image){
     if(context !== undefined){
       document.getElementById('current').src = image.url;
-      console.log(document.getElementById('current').src);
-      context.$apply();
+      context.current = image.url;
+      
     }
     var vol = makeVol(image.url);
     console.log('Training: '+image.className+", for query: "+image.query+" on url: "+image.url);
     trainer.train(vol, image.className);
+    context.current = image.url;
+    context.$apply();
+
   })
 };
 
-// var Flickr = require('flickrapi'); //adds flickr api module for node environment
-// var flickr_options = {api_key: '92bba87c8581878bc0b4543ed6dfbaad', secret: '453633546aaa8325'};
-// Flickr.tokenOnly(flickr_options, function(error, flickr_obj){
-//   flickr = flickr_obj;
-// });
-
 var flickr = new Flickr({api_key: "92bba87c8581878bc0b4543ed6dfbaad"});
-
 
 //pulls in photos from flickr api and can train automatically
 var makeBatch = function(query, className, trainNow, size, context){
-  BATCH_QUERIES = query;
+  BATCH_QUERIES.push(query);
+  NUM_CLASSES = BATCH_QUERIES.length;
+  BATCH_SIZE = size;
   size = size || 25;
   var batch = [];
   flickr.photos.search({
