@@ -1,10 +1,18 @@
-body {
-  padding-left: 5%;
-  padding-right: 5%;
+#main {
+  width: 100%;
 }
 
-pre{
-  height: 250px;
-  width: 50vw;
-  overflow: scroll;
+#app {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#code {
+  height: 200px;
+}
+
+#images img {
+  width: 80px;
+  padding: 5px;
 }
