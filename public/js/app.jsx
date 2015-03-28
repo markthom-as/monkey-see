@@ -122,12 +122,12 @@ var App = React.createClass({
   },
   render: function() {
     return (
-      <div id="main"> 
+      <div id="main" > 
         <MyNav /> 
-        <div id="app">
-          <TrainerForm updateCode={this.updateJSON} />
+        <div id="app" className="container">
+          <TrainerForm updateCode={this.updateJSON} className="col-md-5"/>
+          <CheckImage className="col-md-5"/>
           <ImgPreview  ref="imgPreview" imgSrc={this.state.src}  />
-          <CheckImage />
           <NetCode ref="netCode" />
         </div>
       </div>
