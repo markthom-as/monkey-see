@@ -1,60 +1,19 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <title>MonkeySee - ConvNet Image Trainer</title>
-  <link rel="stylesheet" type="text/css" href="public/lib/angular-material/angular-material.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/css/styles.css">
 </head> 
-<body ng-app="monkeySee" >
-<h1>monkey-see</h1>
-<h4>Train your neural network using the flickr api.</h4>
-  <script type="text/javascript" src="public/lib/angular/angular.js"></script>
-  <script type="text/javascript" src="public/lib/ng-clip/dest/ng-clip.min.js"></script>
-  <script type="text/javascript" src="public/lib/zeroclipboard/dist/ZeroClipboard.js"></script>
-  <script type="text/javascript" src="public/lib/angular-animate/angular-animate.min.js"></script>
-  <script type="text/javascript" src="public/lib/angular-aria/angular-aria.min.js"></script>
-  <script type="text/javascript" src="public/lib/angular-material/angular-material.js"></script>
+<body >
+  <script src="https://www.promisejs.org/polyfills/promise-done-6.1.0.min.js"></script>
   <script type="text/javascript" src="public/lib/flickrapi/browser/flickrapi.js"></script>
-
+  <script type="text/javascript" src="public/lib/react/JSXTransformer.js"></script>
+  <script type="text/javascript" src="public/lib/react/react-with-addons.js"></script>
+  <script type="text/javascript" src="public/lib/react-bootstrap/react-bootstrap.min.js"></script>
   <script type="text/javascript" src="public/js/convnet-min.js"></script>
   <script src="public/js/net.js"></script>
-  <script type="text/javascript" src="public/js/app.js"></script>
-
-
-  <div ng-controller="inputCtrl" layout="column">
-    <md-content class="md-padding" >
-      <md-input-container class='md-padding'>
-        <label>Image Query Array: (Comma separated strings: ['smiling baby', 'smile', 'happy face'])</label>
-        <input ng-model="params.query" type="text">
-      </md-input-container>
-
-      <md-input-container class='md-padding'>
-        <label>Class: (String: 'happy')</label>
-        <input ng-model="params.className" type="text">
-      </md-input-container>
-
-      <md-input-container class='md-padding'>
-        <label>Training Batch Size: (Number: 100)</label>
-        <input ng-model="params.size" type="number">
-      </md-input-container>
-       <md-button class="md-raised md-primary" ng-click="train()">Start Training</md-button>
-    </md-content>
-  <md-content class="md-padding" layout="row">
-    <md-content class="md-padding">
-      <h3>Save Your Neural Network Code:</h3>
-      <p class="json" ng-model="json"><pre>{{json}}</pre> </p>
-      <md-button class="md-raised md-primary" clip-copy="json" >Copy To Clipboard</md-button>
-    </md-content>
-        <md-content class="md-padding">
-      <h3>Current Image</h3>
-      <img ng-src="{{current}}">
-    </md-content>
-  </md-content>
-  </div>
-  <img id="current">
-
-  
+  <script type="text/jsx" src="public/js/app.jsx"></script>
 
 </body>
 </html>
